@@ -2,6 +2,16 @@
 
 InventoryX is a full-stack inventory management system built using Next.js, MongoDB, and Tailwind CSS. It helps businesses manage products, categories, suppliers, purchases, sales, stock levels, customers, and reports.
 
+# InventoryX – Smart Inventory Management System
+
+## Live Demo
+
+🔗 Live Project: https://inventoryx-ruby.vercel.app/
+## GitHub Repository
+
+🔗 Source Code: https://github.com/saini302005/inventoryx
+
+
 ## Features
 
 - User authentication with JWT cookie
