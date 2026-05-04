@@ -3,7 +3,7 @@
 import AppLayout from "@/components/AppLayout";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 type SearchResult = {
   id: string;
@@ -22,7 +22,7 @@ function typeBadge(type: SearchResult["type"]) {
   return "bg-cyan-100 text-cyan-700";
 }
 
-export default function SearchPage() {
+function SearchPageContent() {
   const searchParams = useSearchParams();
   const q = searchParams.get("q") || "";
 
@@ -149,5 +149,21 @@ export default function SearchPage() {
         )}
       </section>
     </AppLayout>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense
+      fallback={
+        <AppLayout>
+          <div className="rounded-3xl border border-slate-200 bg-white p-10 text-center text-slate-500 shadow-sm">
+            Loading search page...
+          </div>
+        </AppLayout>
+      }
+    >
+      <SearchPageContent />
+    </Suspense>
   );
 }
